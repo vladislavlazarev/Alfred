@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	font-family: "Trebuchet MS"
+	font-family: "Trebuchet MS";
 	background-color: #f4f4f4;
 }
 * {
@@ -41,4 +41,32 @@ body {
 	opacity: 1;
 	transition: .3s;
 	background-color: white;
+	opacity: 0;
+	transition: .3s;
+	padding: 20px 50px;
+}
+.bubble.-visible {
+	opacity: 1;
+} 
+input, button {
+	border-radius: 4px;
+	padding: 6px;
+	outline: none;
+	font-size: 14px;
+	font-weight: 900;
+	border: none;
+}
+input {
+	margin:0 20px 0 20px;
+}
+button {
+	background-color: white;
+	color: #f95959;
+
+}
+button:hover {
+	background-color: #f4f4f4;
+}
+button:active {
+	background-color: #f95959;
 }

@@ -1,20 +1,14 @@
 $(document).ready(function() {
-
-	var heroSpeech = 'QQ';
-
-
-	$('.js-showHide').click(function() {
-		$('.hero').toggleClass('-invisible');
-	});
 	
-	$('.js-hello').click(function() {
-		$('.bubble').text(heroSpeech)
+	$('.js-sayThat').click(function() {
+		showBubble($('.js-text1').val() + $('.js-text2').val());
 	});
-	/*$('.js-hide').click(function() {
-		$('.hero').addClass('-invisible');
-	});
-	$('.js-show').click(function() {
-		$('.hero').removeClass('-invisible');
-	});*/
 
+	function showBubble(text) {
+		$('.bubble').text(text);
+		$('.bubble').addClass('-visible');
+		setTimeout(function() {				
+			$('.bubble').removeClass('-visible');
+		}, 2000);
+	}
 });
