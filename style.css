@@ -57,7 +57,7 @@ input, button {
 	border: none;
 }
 input {
-	margin:0 20px 0 20px;
+	margin:0 20px 20px 20px;
 }
 button {
 	background-color: white;
@@ -70,4 +70,24 @@ button:hover {
 }
 button:active {
 	background-color: #f95959;
+}
+
+.bubble-test {
+	border: 2px solid black;
+	padding: 10px;
+}
+.test-array {
+	position: absolute;
+	background-color: #ffe400;
+	min-width: 400px;
+	min-height: 200px;
+	left: 20px;
+	top: 20px;
+}
+.test-item {
+	background-color: white;
+	min-height: 80px;
+	width: 100px;
+	margin: 10px;
+	border-radius: 10px;
 }

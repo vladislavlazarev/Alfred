@@ -1,8 +1,62 @@
 $(document).ready(function() {
 
 
+	let superhero = {
+		name: 'killer',
+		age: 44,
+		job:'Clerc',
+
+		params: {
+			height: 200,
+			weight: 13,
+			gender: 'Male',
+			race: 'Asian'
+		},
+
+		powers: {
+			mainPower: 'fireball',
+			sencondaryPower: 'run'
+		}
+	};
+
+
+ $('.js-object').click(function() {
+ 	showBubbleWithBlock('<div class="bubble-test">Что бы это не значило, но суперсила героя - ' +
+ 	 superhero.powers.mainPower + '!</div>');
+ });
+
+
+
+
+ 	let movies = ['apple', 'orange', 'banana', 'door'];
+
+ 	$('.js-array').click(function() {
+ 		movies.push(getSecondWord());
+ 		showBubble(movies);
+ 	})
+
+
+ 	for (let i = 0; i < movies.length; i++) {
+ 		$('.test-array').append('<div class="test-item">' + movies[i] + '</div>')
+ 	};
+
+
+
+
+
+
+
+
 	$('.js-plus').click(function() {
-			showBubble(Number(getFirstWord()) + Number(getSecondWord()));
+			if (checkInputData().isNumber) {
+		showBubble(Number(getFirstWord()) + Number(getSecondWord()));	
+		} else {
+			if (checkInputData().isEmpty) {
+				showBubble('Пустоши');
+
+			} else showBubble(getFirstWord() + ' ' + getSecondWord());
+		}
+		
 	});
 	$('.js-minus').click(function() {
 			showBubble(Number(getFirstWord()) - Number(getSecondWord()));
@@ -12,18 +66,33 @@ $(document).ready(function() {
 	});
 	$('.js-divide').click(function() {
 		if (checkInputData().isNumber) {
-		showBubble(Number(getFirstWord()) / Number(getSecondWord()));	
+			if (getSecondWord() === '0') {
+			showBubble('Так вымерли динозавры');
+			} else {
+				showBubble(Number(getFirstWord()) / Number(getSecondWord()));
+			}
 		} else {
-			if (checkInputData().isEmpty) {
-				showBubble('Пустоши');
-
-			} else showBubble(getFirstWord() + ' ' + getSecondWord());
+			showStringData();
 		}
 		
 	});
 
 	// ==========================================
 	// ==========================================
+
+	function showStringData() {
+		if (checkInputData().isNumber) {
+		showBubble(Number(getFirstWord()) / Number(getSecondWord()));	
+		} else {
+			if (checkInputData().isEmpty) {
+				showBubble('Пустоши');
+			} else { 
+				showBubble(getFirstWord() + ' ' + getSecondWord());
+			}
+		}
+		
+	};
+	
 
 	function checkInputData () {
 		// проверить число ли это
@@ -57,6 +126,15 @@ $(document).ready(function() {
 
 	function showBubble(text) {
 		$('.bubble').text(text);
+		$('.bubble').addClass('-visible');
+
+		setTimeout(function() {				
+			$('.bubble').removeClass('-visible');
+		}, 2000);
+	}
+
+	function showBubbleWithBlock(block) {
+		$('.bubble').append(block);
 		$('.bubble').addClass('-visible');
 
 		setTimeout(function() {				
